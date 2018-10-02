@@ -1,0 +1,14 @@
+@model GraniteHouse.Models.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Delete product";
+}
+
+<form method="POST" asp-action="Delete">
+    <input type="hidden" asp-for="Product.ID" >
+    <h3>Delete product @Model.Product.Name</h3>
+    <p>Would you like to confirm the deletion of product @Model.Product.Name?</p>
+    <div class="form-group">
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a asp-action="Index" class="btn btn-secondary">Back to list</a>
+    </div>
+</form>

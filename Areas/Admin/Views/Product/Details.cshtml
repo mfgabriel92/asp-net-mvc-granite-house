@@ -1,0 +1,71 @@
+@model GraniteHouse.Models.ViewModels.ProductViewModel
+@using GraniteHouse.Extensions
+
+<h3 class="text-info">Details of product</h3>
+
+<div class="p-4 border rounded row">
+    <div class="col-8">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Product.Name"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Product.Name" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Product.Price"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Product.Price" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Product.ProductType"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Product.ProductType.Name" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Product.SpecialTag"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Product.SpecialTag.Name" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Product.ShadeColor"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Product.ShadeColor" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Product.IsAvailable"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Product.IsAvailable" readonly>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Product.ID">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to list</a>
+        </div>
+    </div>
+    <div class="col-4">
+        <img src="@Model.Product.Image" width="100%" class="p-4 border rounded"/>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

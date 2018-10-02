@@ -1,0 +1,35 @@
+@model IEnumerable<GraniteHouse.Models.ProductType>
+@{
+    ViewData["Title"] = "Product type list";
+}
+
+<div class="row">
+    <div class="col-6 text-left">
+        <h2 class="text-info">Product type list</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info btn-sm">
+            <i class="fas fa-plus"></i> Create new product type
+        </a>
+    </div>
+</div>
+
+<br/>
+
+<table class="table table-striped border table-sm">
+    <tr class="table-info">
+        <th>@Html.DisplayNameFor(m => m.Name)</th> 
+        <th class="col-2"></th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Name)
+            </td>
+            <td class="float-right">
+                <partial name="_TableButtonPartial" model="item.ID" />
+            </td>
+        </tr>
+    }
+</table>

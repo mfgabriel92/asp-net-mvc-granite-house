@@ -1,0 +1,14 @@
+@model GraniteHouse.Models.SpecialTag
+@{
+    ViewData["Title"] = "Delete special tag";
+}
+
+<form method="POST" asp-action="Delete">
+    <input type="hidden" asp-for="ID" >
+    <h3>Delete @Model.Name ?</h3>
+    <p>Would you like to confirm the deletion of @Model.Name?</p>
+    <div class="form-group">
+        <input type="submit" class="btn btn-danger" asp-route-id="@Model.ID" value="Delete">
+        <a asp-action="Index" class="btn btn-secondary">Back to list</a>
+    </div>
+</form>
